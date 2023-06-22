@@ -1,0 +1,36 @@
+
+@mixin use($delay) {
+  position: relative;
+  >*:not(*:first-child) {
+    position: absolute;
+    top: 0;
+  }
+  *{
+    margin: 0;
+  }
+
+  @for $nth from 1 through 5 {
+    @keyframes trail-effect-#{$nth} {
+      0% {
+        transform: translateY(#{0.6 * $nth}em);
+        filter: blur(12px);
+        @if $nth != 1 {
+          opacity: #{(1 - $nth/6)/1.2};
+        } @else { opacity: 1; }
+      }
+      100% {
+        transform: none;
+        filter: #{$nth and none or blur(6px)};
+        @if $nth != 1 {
+          opacity: #{(1 - $nth/6)/4};
+        } @else { opacity: 1; }
+      }
+    }
+    :nth-child(#{$nth}) {
+      animation: #{1.6 + $nth*0.06}s cubic-bezier(0.19, 1, 0.22, 1) $delay 1 trail-effect-#{$nth};
+      @if $nth != 1 {
+        opacity: 0;
+      }
+    }
+  }
+}

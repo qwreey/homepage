@@ -2,53 +2,54 @@
 </script>
 
 <main>
-  <div class="title-animations">
+
+  <div class="trail-effect">
     {#each {length: 5} as _}
-      <p>머찐 애니메이션 효과를 연구해요</p>
+      <p>Qwreey</p>
     {/each}
   </div>
+  <div class="subtitle-holder">
+    {#each ['이것','저것\xa0','뭐든\xa0','만듭','니다.'] as text}
+      <p>{text}</p>
+    {/each}
+  </div>
+  <div class="stars"><div/><div/><div/></div>
+
 </main>
 
 <style lang="scss">
+
+  @use "starEffect";
+  @use "shadowTrailEffect";
+  @use "trailEffect";
+
   main {
     display: flex;
     flex-direction: column;
   }
 
-  .title-animations {
-    position: relative;
-    >p:not(p:first-child) {
-      position: absolute;
-      top: 0;
+  .stars {
+    >:nth-child(1) {
+      @include starEffect.use(100,2000,2);
     }
-    p{
-      margin: 0;
-      font-size: 3em;
-    }
+  }
 
+  // 서브타이틀
+  .subtitle-holder {
+    display: flex;
+    flex-direction: row;
+    p { font-size: 2em; }
     @for $nth from 1 through 5 {
-      @keyframes title-animation-#{$nth} {
-        0% {
-          transform: translateY(#{0.6 * $nth}em);
-          filter: blur(12px);
-          @if $nth != 1 {
-            opacity: #{(1 - $nth/6)/1.2};
-          } @else { opacity: 1; }
-        }
-        100% {
-          transform: none;
-          filter: #{$nth and none or blur(6px)};
-          @if $nth != 1 {
-            opacity: #{(1 - $nth/6)/4};
-          } @else { opacity: 1; }
-        }
-      }
-      :nth-child(#{$nth}) {
-        animation: title-animation-#{$nth} #{1.6 + $nth*0.06}s 1 cubic-bezier(0.19, 1, 0.22, 1);
-        @if $nth != 1 {
-          opacity: 0;
-        }
+      >:nth-child(#{$nth}) {
+        @include shadowTrailEffect.use(#{0.1 * $nth}s);
       }
     }
   }
+
+  // 타이틀
+  .trail-effect {
+    font-size: 3em;
+    @include trailEffect.use(0s);
+  }
+
 </style>
