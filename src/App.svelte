@@ -22,6 +22,19 @@
       </div>
     </div>
 
+    <div class="page">
+      <p>리포목록</p>
+    </div>
+
+  </div>
+
+  <div class="bottom-bar">
+    <div class="menu-item">
+      테스트<br>아이콘
+    </div>
+    <div class="menu-item">
+      테스트<br>아이콘
+    </div>
   </div>
 
 </main>
@@ -43,27 +56,49 @@ TODO: 스크롤 해서 화면에 나타났을 때 애니메이션 효과 넣기�
   @use "trailEffect";
 
   // 변수
-  $bottom-bar-size: 2em;
+  $bottom-bar-size: 3.6em;
 
   main {
     background: radial-gradient(ellipse at bottom, #1d1a3b 0%, #0b0911 100%);
     width: 100vw; height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: none;
   }
 
   // 바텀바 (메뉴바)
-  // .bottom-bar {}
+  .bottom-bar {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px -2px 18px 2px rgba(255, 255, 255, 0.1);
+    width: 100vw;
+    height: $bottom-bar-size;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .menu-item {
+      margin: 0 8px;
+    }
+  }
 
   // 페이지 스크롤 (스넵 스크롤)
+  $page-height: calc(100vh - $bottom-bar-size);
   .page-holder {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    overflow: scroll;
-    width: 100vw; height: calc(100vh - $bottom-bar-size);
+    scroll-snap-points-y: $page-height;
+    overflow-y: scroll;
+    position: relative;
+    width: 100vw; height: $page-height;
+
     // 내부 페이지
     .page {
-      width: 100vw; height: calc(100vh - $bottom-bar-size);
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+      width: 100%; height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
