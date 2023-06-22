@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @function drop-shadow-trail-filters($isStart) {
   $filters: ();
   $filters: append($filters, blur(#{$isStart and 10 or 0}px));
@@ -6,21 +8,25 @@
       0
       #{$isStart and ($nth*0.6) or 0}em
       #{$isStart and 4 or 0}px
-      #{rgba(255, 255, 255, $isStart and (1 - $nth/5) or 0)}
+      #{rgba(255, 255, 255, $isStart and math.div(1 - $nth,5) or 0)}
     ));
   }
   @return $filters;
 }
+
 @mixin drop-shadow-trail-props($isStart) {
   transform: #{ $isStart and translateY(0.8em) or none };
   opacity: #{ $isStart and 0.5 or 1 };
   filter: drop-shadow-trail-filters( $isStart );
 }
+
 @keyframes drop-shadow-trail-keyframes {
   from { @include drop-shadow-trail-props(true); }
   to { @include drop-shadow-trail-props(false); }
 }
+
 @mixin use($delay) {
   opacity: 0;
   animation: 1.6s cubic-bezier(0.19, 1, 0.22, 1) $delay 1 forwards drop-shadow-trail-keyframes;
 }
+

@@ -26,6 +26,14 @@
 
 </main>
 
+<!--
+SUGGEST: 바텀바 vs 탑바 vs 사이드바 (모바일 / pc 여부에 따라 사이드/ 바텀 유무?)
+TODO: 바텀바에 repo, 게시글, 정보 페이지로 각각 스크롤하는 버튼넣기 (아이콘도. 마우스 올리면 위에 툴팁도 뜸)
+TODO: '아래로 스크롤하세요' 텍스트 & 아이콘 만들어서 아래쪽에 오버레이 해놓기
+TODO: 리포 부분에는 스크롤 안에 스크롤 들어가는식으로 만들기 (스크롤 끝까지 하면 다음페이지 넘어가지는)
+TODO: 바텀바 아이콘에 지금위치 가르키는 인디케이터 넣기 (애니메이션과 함깨!)
+-->
+
 <style lang="scss">
 
   @use "common";
@@ -33,25 +41,32 @@
   @use "shadowTrailEffect";
   @use "trailEffect";
 
+  // 변수
+  $bottom-bar-size: 2em;
+
   main {
     background: radial-gradient(ellipse at bottom, #1d1a3b 0%, #0b0911 100%);
     width: 100vw; height: 100vh;
     display: flex;
     flex-direction: column;
+  }
 
-    // 페이지 스크롤 (스넵 스크롤)
-    .page-holder {
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
-      overflow: scroll;
-      width: 100vw; height: 100vh;
-      .page {
-        width: 100vw; height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+  // 바텀바 (메뉴바)
+  // .bottom-bar {}
+
+  // 페이지 스크롤 (스넵 스크롤)
+  .page-holder {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+    width: 100vw; height: calc(100vh - $bottom-bar-size);
+    // 내부 페이지
+    .page {
+      width: 100vw; height: calc(100vh - $bottom-bar-size);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 

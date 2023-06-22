@@ -24,12 +24,14 @@
   box-shadow: $stars;
   
   background: transparent;
+  border-radius: #{$size}px;
   width: #{$size}px;
   height: #{$size}px;
   
   &:after {
     content: " ";
     position: absolute;
+    border-radius: #{$size}px;
     top: #{$spread}px;
     width: #{$size}px;
     height: #{$size}px;
