@@ -1,36 +1,38 @@
-@function multiple-box-shadow($n,$spread) {
-  $value: '#{random(2000)}px #{random($spread)}px #FFF';
+@use "sass:math";
+
+@function multiple-box-shadow($n,$spread,$color) {
+  $value: '#{random(2000)}px #{random($spread)}px #{$color}';
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random($spread)}px #{random($spread)}px #FFF';
+    $value: '#{$value} , #{random($spread)}px #{random($spread)}px #{$color}';
   }
   @return unquote($value);
 }
 
-@keyframes animate {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2000px);
-  }
-}
+@mixin use($n: 100,$spread: 2000,$size: 2,$speed: 1,$color: #FFF) {
+  $stars: multiple-box-shadow($n,$spread,$color);
 
-@mixin use($n: 100,$spread: 2000,$size: 2) {
-  $stars: multiple-box-shadow($n,$spread);
+  @keyframes animate {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-#{$spread}px);
+    }
+  }
 
-  animation: animate 100s linear infinite;
+  animation: animate #{math.div(100,$speed)}s linear infinite;
   box-shadow: $stars;
   
   background: transparent;
-  width: $size;
-  height: $size;
+  width: #{$size}px;
+  height: #{$size}px;
   
   &:after {
     content: " ";
     position: absolute;
     top: #{$spread}px;
-    width: $size;
-    height: $size;
+    width: #{$size}px;
+    height: #{$size}px;
     background: transparent;
     box-shadow: $stars;
   }
