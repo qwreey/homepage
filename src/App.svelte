@@ -20,6 +20,9 @@
           <p>{text}</p>
         {/each}
       </div>
+      <div class="info-scroll-down">
+        <p>스크롤해 더 많은 정보를 볼 수 있어요</p>
+      </div>
     </div>
 
     <div class="page">
