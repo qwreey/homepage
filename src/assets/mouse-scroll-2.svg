@@ -1,0 +1,45 @@
+<svg width="38" height="82" viewBox="0 0 119 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <g id="mouse-scroll">
+    <g id="top">
+      <rect id="mouse-frame" x="17" y="16.1205" width="84" height="122.602" rx="42" stroke="white" stroke-width="12"/>
+      <path id="mouse-wheel" d="M59 42.506L59 72.8675" stroke="white" stroke-width="12" stroke-linecap="round"/>
+    </g>
+    <g id="bottom">
+      <path id="line-left" d="M23 213.322L58.3553 248.678" stroke="white" stroke-width="12" stroke-linecap="round"/>
+      <path id="line-right" d="M58.6777 248.355L94.033 213" stroke="white" stroke-width="12" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <style>
+    @keyframes animate-wheel {
+      0%{
+        transform: translateY(0px);
+      }
+      50%{
+        transform: translateY(40px);
+      }
+      100%{
+        transform: translateY(0px);
+      }
+    }
+    #mouse-wheel {
+      animation: 1s cubic-bezier(0.19, 1, 0.22, 1) 0s infinite animate-wheel;
+    }
+    @keyframes animate-arrow {
+      0%{
+        transform: translateY(-40px);
+      }
+      50%{
+        transform: translateY(0px);
+      }
+      100%{
+        transform: translateY(-40px);
+      }
+    }
+    #bottom {
+      animation: 1s cubic-bezier(0.19, 1, 0.22, 1) 0s infinite animate-arrow;
+    }
+  </style>
+
+</svg>
