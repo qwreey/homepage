@@ -1,4 +1,5 @@
 <script lang="ts">
+  import mouseScroll from "./assets/mouse-scroll.svg"
 </script>
 
 <main>
@@ -21,7 +22,7 @@
         {/each}
       </div>
       <div class="info-scroll-down">
-        <p>스크롤해 더 많은 정보를 볼 수 있어요</p>
+        <img style:opacity="0.8" src={mouseScroll} alt="스크롤해 더 많은 정보를 볼 수 있어요" />
       </div>
     </div>
 
