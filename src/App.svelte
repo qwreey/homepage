@@ -22,7 +22,10 @@
         {/each}
       </div>
       <div class="info-scroll-down">
-        <img style:opacity="0.8" src={mouseScroll} alt="스크롤해 더 많은 정보를 볼 수 있어요" />
+        <img
+          src={mouseScroll}
+          alt="스크롤해 더 많은 정보를 볼 수 있어요"/>
+        <br><p>스크롤해 더 많은 정보를 볼 수 있어요</p>
       </div>
     </div>
 
@@ -71,6 +74,25 @@ TODO: 폰트 추가
     overflow: none;
   }
 
+  // 스크롤 인포
+  .info-scroll-down {
+    @include shadowTrailEffect.use(0.8s);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; // 왜인지 모르겠지만 svg 크기에 영향을줌
+    align-items: center;
+    height: min-content;
+    img {
+      filter: brightness(0) saturate(100%) invert(69%) sepia(17%) saturate(842%) hue-rotate(216deg) brightness(108%) contrast(105%);
+      opacity: 0.8;
+      width: fit-content;
+      height: fit-content;
+    }
+    p {
+      color: #ddcbff;
+    }
+  }
+
   // 바텀바 (메뉴바)
   .bottom-bar {
     background: rgba(255, 255, 255, 0.1);
@@ -97,7 +119,6 @@ TODO: 폰트 추가
     overflow-y: scroll;
     position: relative;
     width: 100vw; height: $page-height;
-
     // 내부 페이지
     .page {
       scroll-snap-align: start;
@@ -146,9 +167,10 @@ TODO: 폰트 추가
       }
     }
   }
-  
+
   // 타이틀
   .trail-effect {
+    margin-top: 20px;
     p {
       color: #ddcbff;
       font-size: 3em;
