@@ -30,7 +30,7 @@
     <div id="icon">
     </div>
     <div id="content">
-
+      <p id="title"><span id="username">{username}</span>/<span id="repo">{repo}</span></p>
     </div>
   </div>
   <div id="icons">

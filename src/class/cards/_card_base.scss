@@ -3,10 +3,17 @@
   justify-content: start;
   align-items: center;
 }
+@mixin nohmargin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 @mixin use {
+  p { @include nohmargin; }
+
   // 바닥글 레이아웃
   #footer {
+    margin-top: 8px;
     @include row;
     p {
       margin-left: 8px;
@@ -17,6 +24,20 @@
   // 아이콘 레이아웃
   #icons {
     @include row;
+    p {
+      margin-right: 4px;
+    }
+  }
+
+  // 타이틀
+  #title {
+    font-weight: normal;
+    #username {
+      font-weight: 500;
+    }
+    #repo {
+      font-weight: bold;
+    }
   }
 
 

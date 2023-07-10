@@ -1,0 +1,11 @@
+@mixin def-font($name, $file, $weight: noraml, $style: normal) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url('fonts/#{$file}.woff2') format('woff2');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bRg.woff2");
+@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bBd.woff2",bold,normal);
