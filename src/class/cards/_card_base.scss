@@ -11,6 +11,24 @@
 @mixin use {
   p { @include nohmargin; }
 
+  // 틀
+  #wrapper {
+    padding: 10px 12px 12px 12px;
+    overflow: auto;
+    border-radius: 12px;
+  }
+  border-radius: 12px;
+  border: 1px solid rgba(127,127,127,0.1) outset;
+  background-color: #181818;
+
+  // 언어 점
+  #langdot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin: 0 4px;
+  }
+
   // 바닥글 레이아웃
   #footer {
     margin-top: 8px;
@@ -58,4 +76,5 @@
   #frame {
     display: flex;
   }
+
 }
