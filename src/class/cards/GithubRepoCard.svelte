@@ -6,6 +6,7 @@
   export let theme:string
   export let username:string
   export let repo:string
+  export let descriptionMaxLength:number = 120
 
   let stars:string = "..."
   let forks:string = "..."
@@ -23,9 +24,15 @@
       stars = ""+result.stargazers_count
       description = ""+result.description
       lang = ""+result.language
+      if (description === "null") {
+        description = "No description, website, or topics provided."
+      }
       if (langcolor[lang]) {
         color = langcolor[lang]
-        overlayColor = `linear-gradient(135deg, ${color}1d, #00000000 70%)`
+        overlayColor = `linear-gradient(135deg, ${color}20, #00000000 95%)`
+      }
+      if (description.length > descriptionMaxLength) {
+        description = description.substring(0,descriptionMaxLength-1) + "..."
       }
     }
   })
@@ -55,7 +62,7 @@
     </div>
     <div id="footer">
       <GithubIcon height="22" width="22" theme={theme}/>
-      <p>Source codes on GitHub</p>
+      <p>Source codes on <span style:font-weight="bold">GitHub</span></p>
     </div>
   </div>
 </div>

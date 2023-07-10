@@ -33,6 +33,7 @@
     <div class="page">
       <p>리포목록</p>
       <GithubRepoCard theme="dark" username="qwreey75" repo="quick-settings-tweaks"/>
+      <GithubRepoCard theme="dark" username="qwreey75" repo="homepage"/>
     </div>
 
   </div>
