@@ -13,7 +13,7 @@
   let description:string = "..."
   let color:string = "transparent"
   let overlayColor:string = "transparent"
-  let lang
+  let lang:string
 
   fetch(`https://api.github.com/repos/${username}/${repo}`).then(async response=>{
     if (!response.ok) {
@@ -36,6 +36,9 @@
       }
     }
   })
+
+  // TODO: Card click linking.
+  // TODO: Mouse effects (... github homepage card alike)
 </script>
 
 <div
