@@ -9,3 +9,7 @@
 
 @include def-font("NanumSquareNeo","NanumSquareNeoTTF-bRg.woff2");
 @include def-font("NanumSquareNeo","NanumSquareNeoTTF-bBd.woff2",bold,normal);
+
+:root {
+  font-family: "NanumSquareNeo";
+}
