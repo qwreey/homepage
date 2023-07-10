@@ -38,16 +38,15 @@
     </div>
   </div>
   <div id="icons">
-    <StarIcon height="24" width="24" theme="dark"/>
+    <StarIcon height="24" width="24" theme={theme}/>
     <p>{stars}</p>
-    <ForkIcon height="24" width="24" theme="dark"/>
+    <ForkIcon height="24" width="24" theme={theme}/>
     <p>{forks}</p>
   </div>
   <div id="footer">
-    <GithubIcon height="22" width="22" theme="dark"/>
+    <GithubIcon height="22" width="22" theme={theme}/>
     <p>Source codes on GitHub</p>
   </div>
-
 </div>
 
 <style lang="scss">
