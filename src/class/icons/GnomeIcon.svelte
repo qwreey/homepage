@@ -1,0 +1,23 @@
+<script lang="ts">
+  export let theme:string
+  export let width:string
+  export let height:string
+
+  let stroke:string
+  switch (theme) {
+    case "dark":
+    case "Dark":
+      stroke = "white"
+      break
+    case "light":
+    case "Light":
+      stroke = "black"
+      break
+  }
+</script>
+
+<svg width={width} height={height} viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+  <g fill-rule="nonzero">
+    <path fill={stroke} d="M417.717 4.08c-104.53 0-124.138 148.883-65.334 148.883 58.795 0 169.868-148.883 65.334-148.883zM244.148 134.515c31.31 1.912 65.661-119.486 6.815-111.851-58.825 7.635-38.138 109.939-6.815 111.85zM100.656 209.949c22.268-9.802 2.868-105.678-34.998-79.53-37.848 26.151 12.73 89.327 34.998 79.53zM163.398 159.766c26.509-5.405 27.962-114.141-19.31-94.635-47.282 19.51-7.177 100.048 19.31 94.635zM301.821 403.1c4.704 35.92-26.35 53.66-56.764 30.503-96.818-73.713 160.304-110.487 143.356-211.193-14.068-83.591-270.55-57.856-299.756 72.94-19.77 88.465 81.378 211.197 186.92 211.197 51.92 0 111.808-46.881 123.012-106.272 8.557-45.288-100.693-27.141-96.768 2.826z"/>
+  </g>
+</svg>

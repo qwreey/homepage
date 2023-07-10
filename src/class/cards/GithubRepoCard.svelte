@@ -9,6 +9,7 @@
 
   let stars:string = "..."
   let forks:string = "..."
+  let description:string = "..."
 
   fetch(`https://api.github.com/repos/${username}/${repo}`).then(async response=>{
     if (!response.ok) {
@@ -17,6 +18,8 @@
       let result = await response.json()
       forks = ""+result.forks_count
       stars = ""+result.stargazers_count
+      description = ""+result.description
+      console.log(result)
     }
   })
 </script>
@@ -31,6 +34,7 @@
     </div>
     <div id="content">
       <p id="title"><span id="username">{username}</span>/<span id="repo">{repo}</span></p>
+      <p id="description">{description}</p>
     </div>
   </div>
   <div id="icons">
