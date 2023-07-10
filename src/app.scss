@@ -1,15 +1,46 @@
 @mixin def-font($name, $file, $weight: noraml, $style: normal) {
   @font-face {
-    font-family: "#{$name}";
-    src: url('fonts/#{$file}.woff2') format('woff2');
+    font-family: $name;
+    src: url('/fonts/#{$file}.woff2') format('woff2');
     font-weight: $weight;
     font-style: $style;
   }
 }
 
-@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bRg.woff2");
-@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bBd.woff2",bold,normal);
+@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bRg");
+@include def-font("NanumSquareNeo","NanumSquareNeoTTF-bBd",bold,normal);
 
 :root {
-  font-family: "NanumSquareNeo";
+  font-family: NanumSquareNeo Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
