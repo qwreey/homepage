@@ -1,6 +1,6 @@
 <script lang="ts">
   import mouseScroll from "./assets/mouse-scroll.svg"
-  import GithubRepoCard from "./class/GithubRepoCard.svelte";
+  import GithubRepoCard from "./class/cards/GithubRepoCard.svelte"
 </script>
 
 <main>
@@ -32,7 +32,7 @@
 
     <div class="page">
       <p>리포목록</p>
-      <GithubRepoCard theme="dark" repo="https://github.com/qwreey75/homepage"/>
+      <GithubRepoCard theme="dark" username="qwreey75" repo="quick-settings-tweaks"/>
     </div>
 
   </div>
