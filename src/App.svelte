@@ -1,12 +1,33 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
+
   import mouseScroll from "./assets/mouse-scroll.svg"
   import GithubRepoCard from "./class/cards/GithubRepoCard.svelte"
+
+  let screenHeight:number
+  let screenWidth:number
+  let canvas:HTMLCanvasElement
+  let ctx:CanvasRenderingContext2D
+  let frame:number
+  let stars = []
+  function loop() {
+    ctx.clearRect(0,0,screenHeight,screenWidth)
+    if (stars.length < 4) {
+      
+    }
+    frame = requestAnimationFrame(loop)
+  }
+  onMount(()=>{
+    ctx = canvas.getContext('2d')
+    frame = requestAnimationFrame(loop)
+  })
 </script>
 
-<main>
+<main bind:clientHeight={screenHeight} bind:clientWidth={screenWidth}>
 
   <!-- 별 효과 -->
   <div class="stars"><div/><div/><div/></div>
+  <canvas class="starfall-canvas" style:width={screenWidth}px style:height={screenHeight}px bind:this={canvas}/>
 
   <div class="page-holder">
 
@@ -75,6 +96,13 @@ TODO: 폰트 추가
     display: flex;
     flex-direction: column;
     overflow: none;
+    position: relative;
+  }
+
+  // 별똥별 캔버스
+  .starfall-canvas {
+    position: absolute;
+    display: none;
   }
 
   // 스크롤 인포
