@@ -1,6 +1,7 @@
 <script lang="ts">
   import mouseScroll from "./assets/mouse-scroll.svg"
   import GithubRepoCard from "./class/cards/GithubRepoCard.svelte"
+  import SafariWarn from "./class/browsers/SafariWarn.svelte"
 </script>
 
 <main>
@@ -12,6 +13,7 @@
 
     <!-- 첫번째 페이지 -->
     <div class="page">
+      <SafariWarn/>
       <div class="trail-effect">
         {#each {length: 5} as _}
           <p>Qwreey</p>
