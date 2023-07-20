@@ -22,7 +22,6 @@
     ctx = canvas.getContext('2d')
     frame = requestAnimationFrame(loop)
   })
-  import SafariWarn from "./class/browsers/SafariWarn.svelte"
 </script>
 
 <main bind:clientHeight={screenHeight} bind:clientWidth={screenWidth}>
