@@ -25,7 +25,6 @@
 </script>
 
 <main bind:clientHeight={screenHeight} bind:clientWidth={screenWidth}>
-
   <!-- 별 효과 -->
   <div class="stars"><div/><div/><div/></div>
   <canvas class="starfall-canvas" style:width={screenWidth}px style:height={screenHeight}px bind:this={canvas}/>
